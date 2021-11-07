@@ -2,19 +2,20 @@ Particle[] bob = new Particle[900];
 void setup()
 {
   size(900,900);
-  for (int i = 1; i < bob.length; i++)
+  for (int i = 3; i < bob.length; i++)
   {
     bob[i] = new Particle();
   }
-  for(int i = 0; i < 1; i++)
+  for(int i = 0; i < 4; i++)
   {
    bob[i] = new OddballParticle();
   }
-  
+  background(0);
 }
 void draw()
 {
-  background(0);
+  fill(0,0,0,10);
+  rect(0,0,900,900);
   for (int i = 0; i < bob.length; i++)
   {
     bob[i].show();
@@ -75,10 +76,11 @@ class OddballParticle extends Particle
     myY = myY +(double)Math.sin(myAngle) * mySpeed;
     if(mousePressed)
     {
-    
       myX = mouseX;
       myY = mouseY;
+      myColor = color((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256));
     }
   }
 }
+
 
